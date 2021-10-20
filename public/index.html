@@ -15,14 +15,21 @@
 <body>
     <h1>BookingApp OAK</h1>
     <div class="container">
-        <form class="form">
-            <div class="title">Välkommen till BookinApp</div>
+        <form id="form">
+            <div class="title">Välkommen till BookingApp</div>
             <div class="formItem">
                 <label>Username</label>
                 <input type="text" class="input" id="name" placeholder="Kalle">
             </div>
             <br>
             <button type="button" class="btn" onclick="Login()">Logga in</button>
+            <hr>
+            <div class="formItem">
+                <label>Time</label>
+                <input type="text" class="input" id="bookTime" placeholder="1700">
+            </div>
+            <br>
+            <button type="button" class="btn" id="btnBook" onclick="Book()">Book</button>
         </form>
     </div>
 </body>

@@ -1,7 +1,7 @@
 {
     "users": [
-        { "name": "Oscar" },
-        { "name": "Adam" },
-        { "name": "Kasiem" }
+        { "name": "oscar", "booking": "" },
+        { "name": "adam", "booking": "" },
+        { "name": "kasiem", "booking": "" }
     ]
 }

@@ -21,3 +21,20 @@ const Login = () => {
         }
     })
 }
+
+const Book = () => {
+    const data = req.response;
+
+    console.log('book clicked');
+
+    const form = document.getElementById('form');
+
+    form.action = '/';
+    form.method = 'POST';
+
+    const tBoxBook = document.getElementById('bookTime');
+
+    tBoxBook.value = data.users[2].name;
+
+    console.log(tBoxBook.value);
+}
