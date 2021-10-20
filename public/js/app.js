@@ -32,9 +32,7 @@ const Book = () => {
     form.action = '/';
     form.method = 'POST';
 
-    const tBoxBook = document.getElementById('bookTime');
-
-    tBoxBook.value = data.users[2].name;
+    const tBoxBook = document.getElementById('bookTimeId');
 
     console.log(tBoxBook.value);
 }
