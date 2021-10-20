@@ -15,6 +15,13 @@ app.use(express.static('public'));
 
 app.use('/', indexRouter);
 
+const authentication = async() => {
+    const auth = new google.auth.Google.Auth({
+        keyFile: "credentials.json",
+        scopes: "https://www.googleapis.com/auth/spreadsheets"
+    })
+}
+
 app.listen(port);
 
 console.log('Server up and running, listening on port: ' + port);
