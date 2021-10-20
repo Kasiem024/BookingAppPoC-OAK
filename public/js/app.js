@@ -8,17 +8,16 @@ req.open('GET', dataURL);
 req.responseType = 'json';
 req.send();
 
-req.onload = () => {
-    const data = req.response;
-    console.log(data.users[2].name);
-}
-
 const Login = () => {
+    const data = req.response;
+
     let inputName = document.getElementById('name').value;
 
-    if (inputName == 'kalle') {
-        console.log('Logged In')
-    } else {
-        console.log('That is not a valid account');
-    }
+    data.users.forEach((element, i) => {
+        if (inputName == element.name) {
+            console.log('Logged In')
+        } else {
+            console.log('That is not a valid account');
+        }
+    })
 }
