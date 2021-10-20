@@ -3,9 +3,13 @@
 const express = require('express');
 const app = express();
 
+const { google } = require('googleapis')
+
 const indexRouter = require('./routes/indexRoute');
 
-const port = 8042;
+const port = process.env.PORT || 8042;
+
+app.use(express.json());
 
 app.use(express.static('public'));
 
