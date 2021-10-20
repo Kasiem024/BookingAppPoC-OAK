@@ -9,6 +9,8 @@ const port = process.env.PORT || 8042;
 
 app.use(express.static('public'));
 
+app.use(express.urlencoded());
+
 app.use('/', indexRouter);
 
 app.listen(port);

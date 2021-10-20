@@ -23,16 +23,17 @@ const Login = () => {
 }
 
 const Book = () => {
-    const data = req.response;
+    // const data = req.response;
 
-    console.log('book clicked');
+    // console.log('book clicked');
 
-    const form = document.getElementById('form');
+    // const form = document.getElementById('form');
 
-    form.action = '/';
-    form.method = 'POST';
+    // form.action = '/';
+    // form.method = 'POST';
 
-    const tBoxBook = document.getElementById('bookTimeId');
+    // const tBoxBook = document.getElementById('bookTimeId');
 
-    console.log(tBoxBook.value);
+    // console.log(tBoxBook.value);
+
 }
