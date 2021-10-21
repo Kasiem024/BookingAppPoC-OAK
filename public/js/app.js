@@ -27,7 +27,7 @@ const Login = () => {
         if (inputName == element.name) {
             console.log('Logged In')
             const tBboxNamn = document.getElementById('name')
-            document.cookie = 'user='+tBboxNamn.value;
+            document.cookie = 'user=' + tBboxNamn.value;
             location.href = '/booking';
         } else {
             console.log('That is not a valid account');

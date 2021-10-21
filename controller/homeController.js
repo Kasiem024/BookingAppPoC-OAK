@@ -32,23 +32,19 @@ exports.booking = (req, res) => {
 };
 exports.bookingPost = (req, res) => {
     console.log('bookingPost is alive!');
+
     // const fs = require('fs');
 
-    // fs.readFile('./public/data/booking.json','utf-8', (err,data) =>{
     //     const bookings = req.body.txtDataName;
 
     //     const tempText = { bookings };
-    
+
     //     // newJsonText = JSON.stringify(tempText);
-    
+
     //     fs.writeFile('./public/data/booking.json', temptext, function(err) {
     //         if (err) throw err;
     //         console.log('File is created successfully.');
     //     });
-    // })
-
-    const test = data;
-
 
     res.sendfile('./public/booking.html');
 };

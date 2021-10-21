@@ -20,36 +20,66 @@ window.onload = () => {
 
 booking.onload = () => {
     console.log('This is booking.onload')
-    const data = booking.response;
-    console.log(data.bookings[0].booked);
-    if (document.cookie.split(';').some((item) => item.trim().startsWith('user='))) {
-        console.log('true')
-      }
+        // const data = booking.response;
+        // console.log(data.bookings[0].booked);
+        // if (document.cookie.split(';').some((item) => item.trim().startsWith('user='))) {
+        //     console.log('true')
+        //   }
+
+    const btnBook = document.createElement('button');
+    btnBook.id = 'btnUpdateId';
+    btnBook.textContent = 'Booking';
+
+    btnBook.addEventListener('click', ButtonEventhandler);
+
+    document.getElementById('formBookId').appendChild(btnBook);
 };
 
-const btnMon = () =>{
-    const data = booking.response;
-
-    console.log('mon is pressed')
-    console.log(data.bookings[0].booked)
-
+const ButtonEventhandler = () => {
+    console.log('Button Book pushed');
 }
 
-const btnTue = () =>{
-    const data = booking.response;
+const btnMon = () => {
+    let data = booking.response;
+    console.log(data.bookings[0].booked)
+
+    console.log('mon is pressed')
+
+    data.bookings[0].booked = true;
+    console.log(data.bookings[0].booked)
+
+    let tBoxData = document.getElementById('txtDataId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
+}
+
+const btnTue = () => {
+    let data = booking.response;
+    console.log(data.bookings[1].booked)
 
     console.log('tue is pressed')
-    console.log(data.bookings[1].booked)
 
     data.bookings[1].booked = true;
     console.log(data.bookings[1].booked)
 
+    let tBoxData = document.getElementById('txtDataId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
 }
 
-const btnWed = () =>{
-    const data = booking.response;
-
-    console.log('wed is pressed')
+const btnWed = () => {
+    let data = booking.response;
     console.log(data.bookings[2].booked)
 
+    console.log('wed is pressed')
+
+    console.log(data.bookings[2].booked)
+    data.bookings[2].booked = true;
+
+    let tBoxData = document.getElementById('txtDataId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
 }
