@@ -1,1 +1,7 @@
-{"booking":"17:63"}
+{
+    "bookings": [
+        { "day": "mon", "time": "07:00", "booked": false, "bookedBy": ""},
+        { "day": "tue", "time": "10:00", "booked": false, "bookedBy": ""},
+        { "day": "wed", "time": "13:00", "booked": false, "bookedBy": ""}
+    ]
+}
