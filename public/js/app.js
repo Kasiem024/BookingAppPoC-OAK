@@ -36,6 +36,13 @@ const Login = () => {
 }
 
 booking.onload = () => {
+    const data = JSON.parse(booking.response);
+
+    console.log(data)
+    const test = document.getElementById('bookTimeId')
+    const temptest = JSON.stringify(data);
+    test.value = temptest;
+
     const btnBook = document.createElement('button');
     btnBook.id = 'btnUpdateId';
     btnBook.textContent = 'Book';

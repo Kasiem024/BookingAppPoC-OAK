@@ -1,7 +1,1 @@
-{
-    "bookings": [
-        { "day": "mon", "time": "07:00", "booked": false, "bookedBy": "" },
-        { "day": "tue", "time": "10:00", "booked": false, "bookedBy": "" },
-        { "day": "wed", "time": "13:00", "booked": false, "bookedBy": "" }
-    ]
-}
+"{\"bookings\":[{\"day\":\"mon\",\"time\":\"07:00\",\"booked\":false,\"bookedBy\":\"\"},{\"day\":\"tue\",\"time\":\"10:00\",\"booked\":false,\"bookedBy\":\"\"},{\"day\":\"wed\",\"time\":\"13:00\",\"booked\":false,\"bookedBy\":\"\"}]}"

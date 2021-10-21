@@ -35,10 +35,6 @@ booking.onload = () => {
     document.getElementById('formBookId').appendChild(btnBook);
 };
 
-const ButtonEventhandler = () => {
-    console.log('Button Book pushed');
-}
-
 const btnMon = () => {
     let data = booking.response;
     console.log(data.bookings[0].booked)

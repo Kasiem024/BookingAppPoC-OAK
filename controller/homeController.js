@@ -8,15 +8,13 @@ exports.index = (req, res) => {
 exports.indexBook = (req, res) => {
     console.log('indexBook is alive!');
 
+    const test = req.body.bookTimeName;
+
+    const test2 = JSON.stringify(test);
+
     const fs = require('fs');
 
-    const booking = req.body.bookTimeName;
-
-    const tempText = { booking };
-
-    const newJsonText = JSON.stringify(tempText);
-
-    fs.writeFile('./public/data/booking.json', newJsonText, function(err) {
+    fs.writeFile('./public/data/booking.json', test2, function(err) {
         if (err) throw err;
         console.log('File is created successfully.');
     });
