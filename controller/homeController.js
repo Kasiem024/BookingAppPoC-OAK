@@ -6,11 +6,11 @@ exports.index = (req, res) => {
     res.sendfile('./public/index.html');
 };
 exports.indexBook = (req, res) => {
-    console.log('indexBook is alive!');
+    console.log('editUpdate is alive!');
 
     const fs = require('fs');
 
-    const booking = req.body.tBoxBook;
+    const booking = req.body.tBoxName1;
 
     const tempText = { booking };
 
@@ -21,7 +21,7 @@ exports.indexBook = (req, res) => {
         console.log('File is created successfully.');
     });
 
-    console.log('indexBook is alive again!');
+    console.log('editUpdate is alive again!');
 
     res.sendfile('./public/index.html');
 };
