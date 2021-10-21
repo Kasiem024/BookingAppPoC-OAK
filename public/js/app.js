@@ -22,50 +22,38 @@ const Login = () => {
     data.users.forEach((element, i) => {
         if (inputName == element.name) {
             console.log('Logged In')
+            const tBboxNamn = document.getElementById('name')
+            document.cookie = tBboxNamn.value;
+            location.href = '/booking';
         } else {
             console.log('That is not a valid account');
         }
-    })
+    });
 }
 
-const Book = () => {
-    const data = booking.response;
-
-    console.log('book clicked');
-
-    const form = document.getElementById('form');
-
-    form.action = '/';
-    form.method = 'POST';
-
-    const tBoxBook = document.getElementById('bookTimeId');
-
-    console.log(tBoxBook.value);
-
-}
 booking.onload = () => {
-    const data = booking.response;
+    // const data = booking.response;
 
-    const form = document.getElementById('form')
-    const tBox1 = document.createElement('input');
-    const btnUpdate = document.createElement('button');
+    // const form = document.createElement('form')
+    // const tBox1 = document.createElement('input');
+    const btnBook = document.createElement('button');
 
-    tBox1.id = 'tBoxId1';
-    tBox1.name = 'tBoxName1';
-    btnUpdate.id = 'btnUpdateId';
-    form.id = 'formId';
+    // tBox1.id = 'tBoxId1';
+    // tBox1.name = 'tBoxName1';
+    btnBook.id = 'btnUpdateId';
+    // form.id = 'formId';
 
-    form.action = '/';
-    form.method = 'POST';
+    // form.action = '/';
+    // form.method = 'POST';
 
-    tBox1.value = data.booking;
-    btnUpdate.textContent = 'Update';
+    // tBox1.value = data.booking;
+    btnBook.textContent = 'Book';
 
-    btnUpdate.addEventListener('click', ButtonEventhandler);
+    btnBook.addEventListener('click', ButtonEventhandler);
 
-    document.getElementById('Exercise2').appendChild(form);
-    document.getElementById('formId').appendChild(tBox1);
-    document.getElementById('formId').appendChild(btnUpdate);
+    // document.getElementById('Exercise2').appendChild(form);
+    // document.getElementById('formId').appendChild(tBox1);
+    document.getElementById('formId').appendChild(btnBook);
 };
 
 const ButtonEventhandler = () => {
