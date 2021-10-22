@@ -39,9 +39,9 @@ booking.onload = () => {
     const data = JSON.parse(booking.response);
 
     console.log(data)
-    const test = document.getElementById('bookTimeId')
+    const tBoxData = document.getElementById('tBoxBookTimeId')
     const temptest = JSON.stringify(data);
-    test.value = temptest;
+    tBoxData.value = temptest;
 
     const btnBook = document.createElement('button');
     btnBook.id = 'btnUpdateId';
@@ -64,7 +64,7 @@ const btnMon = () => {
     data.bookings[0].booked = true;
     console.log(data.bookings[0].booked)
 
-    let tBoxData = document.getElementById('bookTimeId')
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
@@ -79,7 +79,7 @@ const btnTue = () => {
     data.bookings[1].booked = true;
     console.log(data.bookings[1].booked)
 
-    let tBoxData = document.getElementById('bookTimeId')
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
@@ -94,7 +94,7 @@ const btnWed = () => {
     console.log(data.bookings[2].booked)
     data.bookings[2].booked = true;
 
-    let tBoxData = document.getElementById('bookTimeId')
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;

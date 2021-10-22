@@ -5,10 +5,11 @@ exports.index = (req, res) => {
 
     res.sendfile('./public/index.html');
 };
+
 exports.indexBook = (req, res) => {
     console.log('indexBook is alive!');
 
-    const test = req.body.bookTimeName;
+    const test = req.body.tBoxBookTimeName;
 
     const test2 = JSON.stringify(test);
 
@@ -23,11 +24,13 @@ exports.indexBook = (req, res) => {
 
     res.sendfile('./public/index.html');
 };
+
 exports.booking = (req, res) => {
     console.log('booking is alive!');
 
     res.sendfile('./public/booking.html');
 };
+
 exports.bookingPost = (req, res) => {
     console.log('bookingPost is alive!');
 
