@@ -9,17 +9,16 @@ calendarBooking.open('GET', dataURLCalendarBooking);
 calendarBooking.responseType = 'json';
 calendarBooking.send();
 
+const cookieUser = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('user='))
+    .split('=')[1];
 
 calendarBooking.onload = () => {
     console.log(document.cookie);
 
     const dataCalendar = calendarBooking.response;
     console.log(dataCalendar)
-
-    const cookieUser = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('user='))
-        .split('=')[1];
 
     for (let i = 0; i < dataCalendar.week.length; i++) {
 
@@ -48,6 +47,27 @@ calendarBooking.onload = () => {
 
 const btnCancelBooked = () => {
     console.log('btnCancelBooked Clicked')
+
+    const dataCalendar = calendarBooking.response;
+
+    for (let i = 0; i < dataCalendar.week.length; i++) {
+
+        for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
+
+            if (dataCalendar.week[i].times[j].bookedBy == cookieUser) {
+
+                dataCalendar.week[i].times[j].booked = false;
+
+                dataCalendar.week[i].times[j].bookedBy = "";
+
+                let tBoxData = document.getElementById('tBoxBookTimeId')
+
+                let dataTemp = JSON.stringify(dataCalendar)
+                tBoxData.value += dataTemp;
+            }
+        }
+    }
+
     document.getElementById('btnBookId').disabled = false;
 }
 

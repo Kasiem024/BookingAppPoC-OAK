@@ -12,12 +12,16 @@ window.onload = () => {
     console.log(document.cookie);
 }
 
+let counter = 0;
+
 const Login = () => {
     const data = users.response;
 
     let inputName = document.getElementById('tBoxNameId').value;
 
-    let counter = 0;
+    const p = document.createElement('p');
+    p.style.display = 'none';
+    document.getElementById('login').appendChild(p);
 
     data.users.forEach((element, i) => {
         if (inputName == element.name) {
@@ -31,8 +35,8 @@ const Login = () => {
         } else {
             if (counter < 1) {
                 counter++;
-                const p = document.createElement('p');
                 p.textContent = 'Invalid username, try again!'
+                p.style.display = 'block';
                 document.getElementById('login').appendChild(p);
             }
         }
