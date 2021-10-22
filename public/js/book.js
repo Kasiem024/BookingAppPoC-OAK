@@ -73,7 +73,7 @@ booking.onload = () => {
 
             btn.addEventListener('click', btnBookClick)
 
-            btn.id = dataCalendar.week[i].day + j;
+            btn.id = i + "," + j;
 
             document.getElementById('calendar').appendChild(btn);
         }
@@ -82,7 +82,9 @@ booking.onload = () => {
 
 const btnBookClick = (event) => {
     const id = event.target.id;
-    console.log(id)
+    console.log(id);
+
+
 }
 
 const btnMon = () => {
