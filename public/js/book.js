@@ -26,7 +26,6 @@ window.onload = () => {
 
 booking.onload = () => {
     const data = booking.response;
-    console.log(data)
 
     const tBoxData = document.getElementById('tBoxBookTimeId')
 
@@ -53,6 +52,12 @@ booking.onload = () => {
 
     const dataCalendar = calendarBooking.response;
     console.log(dataCalendar);
+    const weekLength = Object.keys(dataCalendar.week).length;
+    console.log(weekLength)
+
+    for (let i = 0; i < test; i++) {
+        console.log('hej')
+    }
 };
 
 const btnMon = () => {
