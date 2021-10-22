@@ -2,11 +2,11 @@
 
 console.log('book.js is alive!')
 
-let dataURLUsers = '../data/users.json';
-let users = new XMLHttpRequest();
-users.open('GET', dataURLUsers);
-users.responseType = 'json';
-users.send();
+// let dataURLUsers = '../data/users.json';
+// let users = new XMLHttpRequest();
+// users.open('GET', dataURLUsers);
+// users.responseType = 'json';
+// users.send();
 
 let dataURLBooking = '../data/booking.json';
 let booking = new XMLHttpRequest();
