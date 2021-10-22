@@ -6,29 +6,22 @@ exports.index = (req, res) => {
     res.sendfile('./public/index.html');
 };
 
-exports.indexBook = (req, res) => {
-    console.log('indexBook is alive!');
-
-    res.sendfile('./public/index.html');
-};
-
 exports.booking = (req, res) => {
     console.log('booking is alive!');
 
     res.sendfile('./public/booking.html');
 };
 
-exports.bookingPost = (req, res) => {
+exports.bookingTime = (req, res) => {
     console.log('bookingPost is alive!');
 
     const fs = require('fs');
-
+    // Sends what the value of tBoxBookTimeName to calendarBooking
+    // The value of tBoxBookTimeName is basically a whole JSON file
     fs.writeFile('./public/data/calendarBooking.json', req.body.tBoxBookTimeName, function(err) {
         if (err) throw err;
         console.log('File is created successfully.');
     });
-
-    console.log('indexBook is alive again!');
 
     res.sendfile('./public/booking.html');
 };
@@ -48,8 +41,6 @@ exports.cancelBooking = (req, res) => {
         if (err) throw err;
         console.log('File is created successfully.');
     });
-
-    console.log('cancelBooking is alive again!');
 
     res.sendfile('./public/booking.html');
 };
