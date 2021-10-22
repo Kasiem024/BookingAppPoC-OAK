@@ -54,44 +54,36 @@ booking.onload = () => {
     console.log(dataCalendar);
 
     for (let i = 0; i < dataCalendar.week.length; i++) {
+
+        var mybr = document.createElement('br');
+        document.getElementById('calendar').appendChild(mybr);
+
         const p = document.createElement('p');
 
         p.textContent = dataCalendar.week[i].day
 
         document.getElementById('calendar').appendChild(p);
-        for (let j = 0; j < dataCalendar.week.length - 1; j++) {
-            const p = document.createElement('p');
 
-            p.textContent = dataCalendar.week[i].times[j].time
-
-            document.getElementById('calendar').appendChild(p);
-        }
-    }
-
-    for (let i = 0; i < dataCalendar.week.length; i++) {
-
-        var mybr = document.createElement('br');
-        document.getElementById('calendar').appendChild(mybr);
-
-        const btn = document.createElement('button');
-
-        btn.textContent = "Boka"
-        btn.style.width = "50px"
-        btn.style.height = "50px"
-
-        document.getElementById('calendar').appendChild(btn);
-
-        for (let i = 0; i < dataCalendar.week.length - 2; i++) {
+        for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
             const btn = document.createElement('button');
 
-            btn.textContent = "Boka"
-            btn.style.width = "50px"
-            btn.style.height = "50px"
+            btn.textContent = "Boka " + dataCalendar.week[i].times[j].time;
+            btn.style.width = "80px"
+            btn.style.height = "80px"
+
+            btn.addEventListener('click', btnBookClick)
+
+            btn.id = dataCalendar.week[i].day + j;
 
             document.getElementById('calendar').appendChild(btn);
         }
     }
 };
+
+const btnBookClick = (event) => {
+    const id = event.target.id;
+    console.log(id)
+}
 
 const btnMon = () => {
     const data = booking.response;
