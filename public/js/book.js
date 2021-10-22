@@ -50,12 +50,14 @@ booking.onload = () => {
         document.getElementById('btnWedId').disabled = true;
     }
 
+
+
     const dataCalendar = calendarBooking.response;
     console.log(dataCalendar);
 
     for (let i = 0; i < dataCalendar.week.length; i++) {
 
-        var mybr = document.createElement('br');
+        let mybr = document.createElement('br');
         document.getElementById('calendar').appendChild(mybr);
 
         const p = document.createElement('p');
@@ -88,12 +90,35 @@ const btnBookClick = (event) => {
     console.log(className);
 
 
-    var elems = document.getElementsByClassName(className);
-    for (var i = 0; i < elems.length; i++) {
-        elems[i].disabled = true;
+    let elements = document.getElementsByClassName(className);
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].disabled = true;
     }
 
     document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
+
+    let day = id.substr(0, 1);
+    console.log(day);
+    let time = id.substr(2, 1);
+    console.log(time);
+
+    const dataCalendar = calendarBooking.response;
+
+    console.log(dataCalendar.week[day].times[time]);
+    console.log(dataCalendar.week[day].times[time].bookedBy);
+
+    dataCalendar.week[day].times[time].booked = true;
+
+    dataCalendar.week[day].times[time].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];
+
+    let tBoxData = document.getElementById('tBoxBookTimeId')
+
+    let dataTemp = JSON.stringify(dataCalendar)
+    tBoxData.value += dataTemp;
 }
 
 const btnCancel = () => {
@@ -107,9 +132,9 @@ const btnCancel = () => {
     document.getElementById('btnTueId').disabled = false;
     document.getElementById('btnWedId').disabled = false;
 
-    var elems = document.getElementsByClassName('btnBookClass');
-    for (var i = 0; i < elems.length; i++) {
-        elems[i].disabled = false;
+    let elements = document.getElementsByClassName('btnBookClass');
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].disabled = false;
     }
 }
 

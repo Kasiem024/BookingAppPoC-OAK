@@ -23,7 +23,7 @@ exports.bookingPost = (req, res) => {
 
     const fs = require('fs');
 
-    fs.writeFile('./public/data/booking.json', req.body.tBoxBookTimeName, function(err) {
+    fs.writeFile('./public/data/calendarBooking.json', req.body.tBoxBookTimeName, function(err) {
         if (err) throw err;
         console.log('File is created successfully.');
     });
