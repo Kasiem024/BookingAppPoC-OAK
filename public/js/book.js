@@ -19,63 +19,127 @@ window.onload = () => {
 }
 
 booking.onload = () => {
-    console.log('This is booking.onload')
-        // const data = booking.response;
-        // console.log(data.bookings[0].booked);
-        // if (document.cookie.split(';').some((item) => item.trim().startsWith('user='))) {
-        //     console.log('true')
-        //   }
+    const data = JSON.parse(booking.response);
+
+    console.log(data)
+    const tBoxData = document.getElementById('tBoxBookTimeId')
 
     const btnBook = document.createElement('button');
-    btnBook.id = 'btnUpdateId';
-    btnBook.textContent = 'Booking';
+    btnBook.id = 'btnBookId';
+    btnBook.textContent = 'Confirm';
 
-    btnBook.addEventListener('click', ButtonEventhandler);
+    document.getElementById('formId').appendChild(btnBook);
 
-    document.getElementById('formBookId').appendChild(btnBook);
+    tBoxData.style.display = 'none';
+    btnBook.disabled = true;
+
+    if (data.bookings[0].booked == true) {
+        document.getElementById('btnMonId').disabled = true;
+    }
+
+    if (data.bookings[1].booked == true) {
+        document.getElementById('btnTueId').disabled = true;
+    }
+
+    if (data.bookings[2].booked == true) {
+        document.getElementById('btnWedId').disabled = true;
+    }
 };
 
 const btnMon = () => {
-    let data = booking.response;
+    const data = JSON.parse(booking.response);
     console.log(data.bookings[0].booked)
 
     console.log('mon is pressed')
 
     data.bookings[0].booked = true;
+    data.bookings[0].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
+
     console.log(data.bookings[0].booked)
 
-    let tBoxData = document.getElementById('txtDataId')
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
 }
 
 const btnTue = () => {
-    let data = booking.response;
+    const data = JSON.parse(booking.response);
     console.log(data.bookings[1].booked)
 
     console.log('tue is pressed')
 
     data.bookings[1].booked = true;
+    data.bookings[1].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
+
     console.log(data.bookings[1].booked)
 
-    let tBoxData = document.getElementById('txtDataId')
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
 }
 
 const btnWed = () => {
-    let data = booking.response;
+    const data = JSON.parse(booking.response);
     console.log(data.bookings[2].booked)
 
     console.log('wed is pressed')
 
-    console.log(data.bookings[2].booked)
     data.bookings[2].booked = true;
+    data.bookings[2].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
 
-    let tBoxData = document.getElementById('txtDataId')
+    console.log(data.bookings[2].booked)
+
+    let tBoxData = document.getElementById('tBoxBookTimeId')
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
+}
+
+const btnCancel = () => {
+    console.log('btnCancel pressed');
+    let tBoxData = document.getElementById('tBoxBookTimeId');
+    tBoxData.value = '';
+
+    document.getElementById('btnCancelId').disabled = true;
+    document.getElementById('btnBookId').disabled = true;
+    document.getElementById('btnMonId').disabled = false;
+    document.getElementById('btnTueId').disabled = false;
+    document.getElementById('btnWedId').disabled = false;
+}
+
+const btnSignOut = () => {
+    console.log('SignOut pressed');
+
+    document.cookie = "";
+
+    location.href = '/'
 }
