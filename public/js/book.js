@@ -52,11 +52,19 @@ booking.onload = () => {
 
     const dataCalendar = calendarBooking.response;
     console.log(dataCalendar);
-    const weekLength = Object.keys(dataCalendar.week).length;
-    console.log(weekLength)
 
-    for (let i = 0; i < test; i++) {
-        console.log('hej')
+    const weekLength = Object.keys(dataCalendar.week).length;
+    const dayLength = Object.keys(dataCalendar.week.mon).length;
+
+    for (let i = 0; i < weekLength; i++) {
+        const test = document.createElement('button');
+        document.getElementById('calendar').appendChild(test);
+        for (let i = 0; i < dayLength; i++) {
+            const test = document.createElement('button');
+            document.getElementById('calendar').appendChild(test);
+            console.log('hej')
+        }
+
     }
 };
 
