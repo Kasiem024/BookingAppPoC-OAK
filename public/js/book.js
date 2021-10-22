@@ -1,6 +1,5 @@
 'use strict';
 
-console.log('book.js is alive!')
 
 let dataURLCalendarBooking = '../data/calendarBooking.json';
 let calendarBooking = new XMLHttpRequest();
@@ -10,6 +9,7 @@ calendarBooking.send();
 
 
 window.onload = () => {
+    console.log('book.js is alive!')
     console.log(document.cookie)
 }
 
@@ -64,9 +64,6 @@ calendarBooking.onload = () => {
 const btnBookClick = (event) => {
     const id = event.target.id;
     const className = event.target.className;
-    console.log(id);
-    console.log(className);
-
 
     let elements = document.getElementsByClassName(className);
     for (let i = 0; i < elements.length; i++) {
@@ -95,7 +92,6 @@ const btnBookClick = (event) => {
 }
 
 const btnCancel = () => {
-    console.log('btnCancel pressed');
     let tBoxData = document.getElementById('tBoxBookTimeId');
     tBoxData.value = '';
 
@@ -112,9 +108,5 @@ const btnCancel = () => {
 }
 
 const btnSignOut = () => {
-    console.log('SignOut pressed');
-
-    document.cookie = "";
-
     location.href = '/'
 }

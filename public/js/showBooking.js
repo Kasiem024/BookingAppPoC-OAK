@@ -34,3 +34,7 @@ calendarBooking.onload = () => {
         }
     }
 }
+
+const btnSignOut = () => {
+    location.href = '/'
+}

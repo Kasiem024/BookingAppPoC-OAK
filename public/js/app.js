@@ -1,6 +1,5 @@
 'use strict';
 
-console.log('app.js is alive!')
 
 let dataURLUsers = '../data/users.json';
 let users = new XMLHttpRequest();
@@ -9,6 +8,7 @@ users.responseType = 'json';
 users.send();
 
 window.onload = () => {
+    console.log('app.js is alive!')
     console.log(document.cookie);
 }
 
@@ -16,6 +16,8 @@ const Login = () => {
     const data = users.response;
 
     let inputName = document.getElementById('tBoxNameId').value;
+
+    let counter = 0;
 
     data.users.forEach((element, i) => {
         if (inputName == element.name) {
@@ -27,7 +29,12 @@ const Login = () => {
 
             location.href = '/booking';
         } else {
-            console.log('That is not a valid account');
+            if (counter < 1) {
+                counter++;
+                const p = document.createElement('p');
+                p.textContent = 'Invalid username, try again!'
+                document.getElementById('login').appendChild(p);
+            }
         }
     });
 }
