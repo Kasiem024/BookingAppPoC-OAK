@@ -8,17 +8,17 @@ console.log('book.js is alive!')
 // users.responseType = 'json';
 // users.send();
 
-let dataURLBooking = '../data/booking.json';
-let booking = new XMLHttpRequest();
-booking.open('GET', dataURLBooking);
-booking.responseType = 'json';
-booking.send();
-
 let dataURLCalendarBooking = '../data/calendarBooking.json';
 let calendarBooking = new XMLHttpRequest();
 calendarBooking.open('GET', dataURLCalendarBooking);
 calendarBooking.responseType = 'json';
 calendarBooking.send();
+
+let dataURLBooking = '../data/booking.json';
+let booking = new XMLHttpRequest();
+booking.open('GET', dataURLBooking);
+booking.responseType = 'json';
+booking.send();
 
 window.onload = () => {
     console.log(document.cookie)
@@ -26,8 +26,8 @@ window.onload = () => {
 
 booking.onload = () => {
     const data = booking.response;
-
     console.log(data)
+
     const tBoxData = document.getElementById('tBoxBookTimeId')
 
     const btnBook = document.createElement('button');
