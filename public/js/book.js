@@ -14,6 +14,12 @@ booking.open('GET', dataURLBooking);
 booking.responseType = 'json';
 booking.send();
 
+let dataURLCalendarBooking = '../data/calendarBooking.json';
+let calendarBooking = new XMLHttpRequest();
+calendarBooking.open('GET', dataURLCalendarBooking);
+calendarBooking.responseType = 'json';
+calendarBooking.send();
+
 window.onload = () => {
     console.log(document.cookie)
 }
@@ -44,6 +50,9 @@ booking.onload = () => {
     if (data.bookings[2].booked == true) {
         document.getElementById('btnWedId').disabled = true;
     }
+
+    const dataCalendar = calendarBooking.response;
+    console.log(dataCalendar);
 };
 
 const btnMon = () => {
