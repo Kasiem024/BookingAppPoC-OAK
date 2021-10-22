@@ -54,3 +54,48 @@ booking.onload = () => {
 const ButtonEventhandler = () => {
     console.log('Button Book pushed');
 }
+
+const btnMon = () => {
+    const data = JSON.parse(booking.response);
+    console.log(data.bookings[0].booked)
+
+    console.log('mon is pressed')
+
+    data.bookings[0].booked = true;
+    console.log(data.bookings[0].booked)
+
+    let tBoxData = document.getElementById('bookTimeId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
+}
+
+const btnTue = () => {
+    const data = JSON.parse(booking.response);
+    console.log(data.bookings[1].booked)
+
+    console.log('tue is pressed')
+
+    data.bookings[1].booked = true;
+    console.log(data.bookings[1].booked)
+
+    let tBoxData = document.getElementById('bookTimeId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
+}
+
+const btnWed = () => {
+    const data = JSON.parse(booking.response);
+    console.log(data.bookings[2].booked)
+
+    console.log('wed is pressed')
+
+    console.log(data.bookings[2].booked)
+    data.bookings[2].booked = true;
+
+    let tBoxData = document.getElementById('bookTimeId')
+
+    let dataTemp = JSON.stringify(data)
+    tBoxData.value += dataTemp;
+}
