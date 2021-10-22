@@ -14,20 +14,28 @@ booking.open('GET', dataURLBooking);
 booking.responseType = 'json';
 booking.send();
 
+const checkUser = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('user='))
+    .split('=')[1];
+
 window.onload = () => {
-    console.log(document.cookie)
+    console.log(document.cookie);
 }
 
 const Login = () => {
     const data = users.response;
 
-    let inputName = document.getElementById('name').value;
+    let inputName = document.getElementById('tBoxNameId').value;
 
     data.users.forEach((element, i) => {
         if (inputName == element.name) {
             console.log('Logged In')
-            const tBboxNamn = document.getElementById('name')
-            document.cookie = 'user=' + tBboxNamn.value;
+
+            const tBoxNamn = document.getElementById('tBoxNameId')
+
+            document.cookie = 'user=' + tBoxNamn.value;
+
             location.href = '/booking';
         } else {
             console.log('That is not a valid account');
@@ -40,8 +48,6 @@ booking.onload = () => {
 
     console.log(data)
     const tBoxData = document.getElementById('tBoxBookTimeId')
-        // const temptest = JSON.stringify(data);
-        // tBoxData.value = temptest;
 
     const btnBook = document.createElement('button');
     btnBook.id = 'btnBookId';
@@ -51,6 +57,18 @@ booking.onload = () => {
 
     tBoxData.style.display = 'none';
     btnBook.disabled = true;
+
+    if (data.bookings[0].booked == true) {
+        document.getElementById('btnMonId').disabled = true;
+    }
+
+    if (data.bookings[1].booked == true) {
+        document.getElementById('btnTueId').disabled = true;
+    }
+
+    if (data.bookings[2].booked == true) {
+        document.getElementById('btnWedId').disabled = true;
+    }
 };
 
 const btnMon = () => {
@@ -60,6 +78,8 @@ const btnMon = () => {
     console.log('mon is pressed')
 
     data.bookings[0].booked = true;
+    data.bookings[0].bookedBy = checkUser;
+
     console.log(data.bookings[0].booked)
 
     let tBoxData = document.getElementById('tBoxBookTimeId')
@@ -81,6 +101,8 @@ const btnTue = () => {
     console.log('tue is pressed')
 
     data.bookings[1].booked = true;
+    data.bookings[1].bookedBy = checkUser;
+
     console.log(data.bookings[1].booked)
 
     let tBoxData = document.getElementById('tBoxBookTimeId')
@@ -101,8 +123,10 @@ const btnWed = () => {
 
     console.log('wed is pressed')
 
-    console.log(data.bookings[2].booked)
     data.bookings[2].booked = true;
+    data.bookings[2].bookedBy = checkUser;
+
+    console.log(data.bookings[2].booked)
 
     let tBoxData = document.getElementById('tBoxBookTimeId')
 
@@ -120,6 +144,7 @@ const btnCancel = () => {
     console.log('btnCancel pressed');
     let tBoxData = document.getElementById('tBoxBookTimeId');
     tBoxData.value = '';
+
     document.getElementById('btnCancelId').disabled = true;
     document.getElementById('btnBookId').disabled = true;
     document.getElementById('btnMonId').disabled = false;
