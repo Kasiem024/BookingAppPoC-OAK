@@ -38,3 +38,18 @@ exports.showBooking = (req, res) => {
 
     res.sendfile('./public/showBooking.html');
 };
+
+exports.cancelBooking = (req, res) => {
+    console.log('bookingPost is alive!');
+
+    const fs = require('fs');
+
+    fs.writeFile('./public/data/calendarBooking.json', req.body.tBoxBookTimeName, function(err) {
+        if (err) throw err;
+        console.log('File is created successfully.');
+    });
+
+    console.log('indexBook is alive again!');
+
+    res.sendfile('./public/booking.html');
+};

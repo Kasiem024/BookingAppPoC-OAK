@@ -35,6 +35,10 @@ calendarBooking.onload = () => {
     }
 }
 
+const btnCancelBooked = () => {
+    console.log('btnCancelBooked Clicked')
+}
+
 const btnSignOut = () => {
     location.href = '/'
 }

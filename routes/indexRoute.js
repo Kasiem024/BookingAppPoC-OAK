@@ -10,5 +10,6 @@ router.post('/', index_controller.indexBook);
 router.get('/booking', index_controller.booking);
 router.post('/booking', index_controller.bookingPost);
 router.get('/showBooking', index_controller.showBooking);
+router.post('/showBooking', index_controller.cancelBooking);
 
 module.exports = router;
