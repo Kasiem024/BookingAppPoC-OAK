@@ -47,16 +47,11 @@ booking.onload = () => {
     btnBook.id = 'btnBookId';
     btnBook.textContent = 'Confirm';
 
-    btnBook.addEventListener('click', ButtonEventhandler);
     document.getElementById('formId').appendChild(btnBook);
 
     tBoxData.style.display = 'none';
     btnBook.disabled = true;
 };
-
-const ButtonEventhandler = () => {
-    console.log('Button Book pushed');
-}
 
 const btnMon = () => {
     const data = JSON.parse(booking.response);
@@ -74,6 +69,9 @@ const btnMon = () => {
 
     document.getElementById('btnCancelId').disabled = false;
     document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
 }
 
 const btnTue = () => {
@@ -92,6 +90,9 @@ const btnTue = () => {
 
     document.getElementById('btnCancelId').disabled = false;
     document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
 }
 
 const btnWed = () => {
@@ -110,10 +111,18 @@ const btnWed = () => {
 
     document.getElementById('btnCancelId').disabled = false;
     document.getElementById('btnBookId').disabled = false;
+    document.getElementById('btnMonId').disabled = true;
+    document.getElementById('btnTueId').disabled = true;
+    document.getElementById('btnWedId').disabled = true;
 }
 
 const btnCancel = () => {
     console.log('btnCancel pressed');
     let tBoxData = document.getElementById('tBoxBookTimeId');
     tBoxData.value = '';
+    document.getElementById('btnCancelId').disabled = true;
+    document.getElementById('btnBookId').disabled = true;
+    document.getElementById('btnMonId').disabled = false;
+    document.getElementById('btnTueId').disabled = false;
+    document.getElementById('btnWedId').disabled = false;
 }
