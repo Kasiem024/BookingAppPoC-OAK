@@ -2,42 +2,18 @@
 
 console.log('book.js is alive!')
 
-// let dataURLUsers = '../data/users.json';
-// let users = new XMLHttpRequest();
-// users.open('GET', dataURLUsers);
-// users.responseType = 'json';
-// users.send();
-
 let dataURLCalendarBooking = '../data/calendarBooking.json';
 let calendarBooking = new XMLHttpRequest();
 calendarBooking.open('GET', dataURLCalendarBooking);
 calendarBooking.responseType = 'json';
 calendarBooking.send();
 
-// let dataURLBooking = '../data/booking.json';
-// let booking = new XMLHttpRequest();
-// booking.open('GET', dataURLBooking);
-// booking.responseType = 'json';
-// booking.send();
 
 window.onload = () => {
     console.log(document.cookie)
 }
 
 calendarBooking.onload = () => {
-    // const data = booking.response;
-
-    // if (data.bookings[0].booked == true) {
-    //     document.getElementById('btnMonId').disabled = true;
-    // }
-
-    // if (data.bookings[1].booked == true) {
-    //     document.getElementById('btnTueId').disabled = true;
-    // }
-
-    // if (data.bookings[2].booked == true) {
-    //     document.getElementById('btnWedId').disabled = true;
-    // }
 
     const tBoxData = document.getElementById('tBoxBookTimeId')
 
@@ -142,83 +118,3 @@ const btnSignOut = () => {
 
     location.href = '/'
 }
-
-// const btnMon = () => {
-//     const data = booking.response;
-//     console.log(data.bookings[0].booked)
-
-//     console.log('mon is pressed')
-
-//     data.bookings[0].booked = true;
-//     data.bookings[0].bookedBy = document.cookie
-//         .split('; ')
-//         .find(row => row.startsWith('user='))
-//         .split('=')[1];;
-
-//     console.log(data.bookings[0].booked)
-
-//     let tBoxData = document.getElementById('tBoxBookTimeId')
-
-//     let dataTemp = JSON.stringify(data)
-//     tBoxData.value += dataTemp;
-
-//     document.getElementById('btnCancelId').disabled = false;
-//     document.getElementById('btnBookId').disabled = false;
-//     document.getElementById('btnMonId').disabled = true;
-//     document.getElementById('btnTueId').disabled = true;
-//     document.getElementById('btnWedId').disabled = true;
-// }
-
-// const btnTue = () => {
-//     const data = booking.response;
-//     console.log(data.bookings[1].booked)
-
-//     console.log('tue is pressed')
-
-//     data.bookings[1].booked = true;
-//     data.bookings[1].bookedBy = document.cookie
-//         .split('; ')
-//         .find(row => row.startsWith('user='))
-//         .split('=')[1];;
-
-//     console.log(data.bookings[1].booked)
-
-//     let tBoxData = document.getElementById('tBoxBookTimeId')
-
-//     let dataTemp = JSON.stringify(data)
-//     tBoxData.value += dataTemp;
-
-//     document.getElementById('btnCancelId').disabled = false;
-//     document.getElementById('btnBookId').disabled = false;
-//     document.getElementById('btnMonId').disabled = true;
-//     document.getElementById('btnTueId').disabled = true;
-//     document.getElementById('btnWedId').disabled = true;
-// }
-
-// const btnWed = () => {
-//     const data = booking.response;
-//     console.log(data.bookings[2].booked)
-
-//     console.log('wed is pressed')
-
-//     data.bookings[2].booked = true;
-//     data.bookings[2].bookedBy = document.cookie
-//         .split('; ')
-//         .find(row => row.startsWith('user='))
-//         .split('=')[1];;
-
-//     console.log(data.bookings[2].booked)
-
-//     let tBoxData = document.getElementById('tBoxBookTimeId')
-
-//     let dataTemp = JSON.stringify(data)
-//     tBoxData.value += dataTemp;
-
-//     document.getElementById('btnCancelId').disabled = false;
-//     document.getElementById('btnBookId').disabled = false;
-//     document.getElementById('btnMonId').disabled = true;
-//     document.getElementById('btnTueId').disabled = true;
-//     document.getElementById('btnWedId').disabled = true;
-
-//     document.getElementsByClassName('btnBookClass').disabled = false;
-// }

@@ -8,12 +8,6 @@ users.open('GET', dataURLUsers);
 users.responseType = 'json';
 users.send();
 
-// let dataURLBooking = '../data/booking.json';
-// let booking = new XMLHttpRequest();
-// booking.open('GET', dataURLBooking);
-// booking.responseType = 'json';
-// booking.send();
-
 window.onload = () => {
     console.log(document.cookie);
 }
