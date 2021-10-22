@@ -1,6 +1,6 @@
 {
     "week": [{
-            "day": "mon",
+            "day": "Monday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "day": "tue",
+            "day": "Tuesday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -67,7 +67,7 @@
                 }
             ]
         }, {
-            "day": "wed",
+            "day": "Wednesday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -100,7 +100,7 @@
                 }
             ]
         }, {
-            "day": "thur",
+            "day": "Thursday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -133,7 +133,7 @@
                 }
             ]
         }, {
-            "day": "fri",
+            "day": "Friday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -166,7 +166,7 @@
                 }
             ]
         }, {
-            "day": "sat",
+            "day": "Saturday",
             "times": [{
                     "time": "07:00",
                     "booked": false,
@@ -199,7 +199,7 @@
                 }
             ]
         }, {
-            "day": "sun",
+            "day": "Sunday",
             "times": [{
                     "time": "07:00",
                     "booked": false,

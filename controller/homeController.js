@@ -32,3 +32,9 @@ exports.bookingPost = (req, res) => {
 
     res.sendfile('./public/booking.html');
 };
+
+exports.showBooking = (req, res) => {
+    console.log('booking is alive!');
+
+    res.sendfile('./public/showBooking.html');
+};
