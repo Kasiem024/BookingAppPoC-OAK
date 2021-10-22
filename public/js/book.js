@@ -65,24 +65,22 @@ calendarBooking.onload = () => {
         document.getElementById('calendar').appendChild(p);
 
         for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
+            const btn = document.createElement('button');
 
-            if (dataCalendar.week[i].times[j].booked == false) {
-                const btn = document.createElement('button');
+            btn.textContent = "Boka " + dataCalendar.week[i].times[j].time;
+            btn.style.width = "80px"
+            btn.style.height = "80px"
 
-                btn.textContent = "Boka " + dataCalendar.week[i].times[j].time;
-                btn.style.width = "80px"
-                btn.style.height = "80px"
+            btn.addEventListener('click', btnBookClick)
 
-                btn.addEventListener('click', btnBookClick)
+            btn.id = i + "," + j;
+            btn.className = 'btnBookClass';
 
-                btn.id = i + "," + j;
-                btn.className = 'btnBookClass';
+            document.getElementById('calendar').appendChild(btn);
 
-                document.getElementById('calendar').appendChild(btn);
-            } else {
-                console.log('one button booked')
+            if (dataCalendar.week[i].times[j].booked == true) {
+                btn.disabled = true;
             }
-
         }
     }
 };
