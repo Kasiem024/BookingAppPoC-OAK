@@ -9,19 +9,6 @@ exports.index = (req, res) => {
 exports.indexBook = (req, res) => {
     console.log('indexBook is alive!');
 
-    const test = req.body.tBoxBookTimeName;
-
-    const test2 = JSON.stringify(test);
-
-    const fs = require('fs');
-
-    fs.writeFile('./public/data/booking.json', test2, function(err) {
-        if (err) throw err;
-        console.log('File is created successfully.');
-    });
-
-    console.log('indexBook is alive again!');
-
     res.sendfile('./public/index.html');
 };
 
@@ -34,13 +21,9 @@ exports.booking = (req, res) => {
 exports.bookingPost = (req, res) => {
     console.log('bookingPost is alive!');
 
-    const test = req.body.tBoxBookTimeName;
-
-    const test2 = JSON.stringify(test);
-
     const fs = require('fs');
 
-    fs.writeFile('./public/data/booking.json', test2, function(err) {
+    fs.writeFile('./public/data/booking.json', JSON.stringify(req.body.tBoxBookTimeName), function(err) {
         if (err) throw err;
         console.log('File is created successfully.');
     });
