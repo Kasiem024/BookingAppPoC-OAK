@@ -40,7 +40,7 @@ calendarBooking.onload = () => {
         for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
 
             // Creating a button for each time in each day, 42 in total
-            // Giving each button the same class and a uniquie id
+            // Giving each button the same class and a unique id
             // id is based on what day and what time in that day
             const btn = document.createElement('button');
             btn.textContent = "Boka " + dataCalendar.week[i].times[j].time;
@@ -60,38 +60,9 @@ calendarBooking.onload = () => {
             }
         }
     }
-    oneBooking();
 };
 
-// This function forces the user to only have one booking at a time
-// This is due to the limitations of the cancel booking button
-// Needs to be changed
-const oneBooking = () => {
-    const dataCalendar = calendarBooking.response;
-
-    for (let i = 0; i < dataCalendar.week.length; i++) {
-
-        for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
-
-            if (dataCalendar.week[i].times[j].bookedBy == document.cookie.split('; ').find(row => row.startsWith('user=')).split('=')[1]) {
-                // If user already has booked a time
-
-                let elements = document.getElementsByClassName('btnBookClass');
-                for (let i = 0; i < elements.length; i++) {
-                    // Goes through each button and disables it
-                    elements[i].disabled = true;
-                }
-                const p = document.createElement('p');
-                p.textContent = 'You already have a booking, you need to first cancel your booking to make a new one';
-
-                // "prepend" prints to beginning of the element
-                document.getElementById('calendar').prepend(p);
-            }
-        }
-    }
-}
-
-// btnBookClick() prints a string to tBoxBookTimeId,
+// "btnBookClick()" prints a string to tBoxBookTimeId,
 // depending on the id of the clicked button
 const btnBookClick = (event) => {
     // "event" is which element triggered the function
@@ -121,8 +92,7 @@ const btnBookClick = (event) => {
     dataCalendar.week[day].times[time].booked = true;
 
     // Gets which user has clicked the button from cookie
-    dataCalendar.week[day].times[time].bookedBy = document.cookie
-        .split('; ').find(row => row.startsWith('user=')).split('=')[1];
+    dataCalendar.week[day].times[time].bookedBy = document.cookie.split('; ').find(row => row.startsWith('user=')).split('=')[1];
 
     // Value of "tBoxData" is the new dataCalendar with who booked what time
     let tBoxData = document.getElementById('tBoxBookTimeId')
