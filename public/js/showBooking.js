@@ -33,10 +33,22 @@ calendarBooking.onload = () => {
             }
         }
     }
+
+    const tBoxData = document.getElementById('tBoxBookTimeId')
+
+    const btnBook = document.createElement('button');
+    btnBook.id = 'btnBookId';
+    btnBook.textContent = 'Confirm';
+
+    tBoxData.style.display = 'none';
+    btnBook.disabled = true;
+
+    document.getElementById('formId').appendChild(btnBook);
 }
 
 const btnCancelBooked = () => {
     console.log('btnCancelBooked Clicked')
+    document.getElementById('btnBookId').disabled = false;
 }
 
 const btnSignOut = () => {

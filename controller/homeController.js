@@ -34,13 +34,13 @@ exports.bookingPost = (req, res) => {
 };
 
 exports.showBooking = (req, res) => {
-    console.log('booking is alive!');
+    console.log('showBooking is alive!');
 
     res.sendfile('./public/showBooking.html');
 };
 
 exports.cancelBooking = (req, res) => {
-    console.log('bookingPost is alive!');
+    console.log('cancelBooking is alive!');
 
     const fs = require('fs');
 
@@ -49,7 +49,7 @@ exports.cancelBooking = (req, res) => {
         console.log('File is created successfully.');
     });
 
-    console.log('indexBook is alive again!');
+    console.log('cancelBooking is alive again!');
 
     res.sendfile('./public/booking.html');
 };
