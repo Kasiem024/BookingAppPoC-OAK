@@ -19,7 +19,7 @@ window.onload = () => {
 }
 
 booking.onload = () => {
-    const data = JSON.parse(booking.response);
+    const data = booking.response;
 
     console.log(data)
     const tBoxData = document.getElementById('tBoxBookTimeId')
@@ -47,7 +47,7 @@ booking.onload = () => {
 };
 
 const btnMon = () => {
-    const data = JSON.parse(booking.response);
+    const data = booking.response;
     console.log(data.bookings[0].booked)
 
     console.log('mon is pressed')
@@ -73,7 +73,7 @@ const btnMon = () => {
 }
 
 const btnTue = () => {
-    const data = JSON.parse(booking.response);
+    const data = booking.response;
     console.log(data.bookings[1].booked)
 
     console.log('tue is pressed')
@@ -99,7 +99,7 @@ const btnTue = () => {
 }
 
 const btnWed = () => {
-    const data = JSON.parse(booking.response);
+    const data = booking.response;
     console.log(data.bookings[2].booked)
 
     console.log('wed is pressed')
