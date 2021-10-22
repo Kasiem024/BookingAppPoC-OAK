@@ -52,20 +52,24 @@ booking.onload = () => {
 
     const dataCalendar = calendarBooking.response;
     console.log(dataCalendar);
+    console.log(dataCalendar.week[0].times[0].time);
 
-    const weekLength = Object.keys(dataCalendar.week).length;
-    const dayLength = Object.keys(dataCalendar.week.mon).length;
 
-    for (let i = 0; i < weekLength; i++) {
-        const test = document.createElement('button');
-        document.getElementById('calendar').appendChild(test);
-        for (let i = 0; i < dayLength; i++) {
-            const test = document.createElement('button');
-            document.getElementById('calendar').appendChild(test);
-            console.log('hej')
-        }
+    // const weekLength = Object.keys(dataCalendar.week).length;
+    // const dayLength = Object.keys(dataCalendar.week.mon).length;
 
-    }
+
+    // for (let i = 0; i < weekLength; i++) {
+    //     const test = document.createElement('button');
+    //     document.getElementById('calendar').appendChild(test);
+
+    //     for (let i = 0; i < dayLength; i++) {
+    //         const test = document.createElement('button');
+    //         document.getElementById('calendar').appendChild(test);
+    //         console.log('hej')
+    //     }
+
+    // }
 };
 
 const btnMon = () => {
