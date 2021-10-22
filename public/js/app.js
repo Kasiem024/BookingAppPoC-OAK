@@ -40,15 +40,17 @@ booking.onload = () => {
 
     console.log(data)
     const tBoxData = document.getElementById('tBoxBookTimeId')
-    const temptest = JSON.stringify(data);
-    tBoxData.value = temptest;
+        // const temptest = JSON.stringify(data);
+        // tBoxData.value = temptest;
 
     const btnBook = document.createElement('button');
     btnBook.id = 'btnUpdateId';
-    btnBook.textContent = 'Book';
+    btnBook.textContent = 'Confirm';
 
     btnBook.addEventListener('click', ButtonEventhandler);
     document.getElementById('formId').appendChild(btnBook);
+
+    tBoxData.style.display = 'none';
 };
 
 const ButtonEventhandler = () => {
