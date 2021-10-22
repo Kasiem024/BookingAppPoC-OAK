@@ -59,7 +59,32 @@ calendarBooking.onload = () => {
             }
         }
     }
+    oneBooking();
 };
+
+const oneBooking = () => {
+    const dataCalendar = calendarBooking.response;
+
+    for (let i = 0; i < dataCalendar.week.length; i++) {
+
+        for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
+
+            if (dataCalendar.week[i].times[j].bookedBy == document.cookie
+                .split('; ')
+                .find(row => row.startsWith('user='))
+                .split('=')[1]) {
+                let elements = document.getElementsByClassName('btnBookClass');
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].disabled = true;
+                }
+                const p = document.createElement('p');
+                p.textContent = 'You already have a booking, you need to first cancel your booking to make a new one';
+                document.getElementById('calendar').prepend(p);
+            }
+        }
+    }
+
+}
 
 const btnBookClick = (event) => {
     const id = event.target.id;
