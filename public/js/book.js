@@ -74,6 +74,7 @@ booking.onload = () => {
             btn.addEventListener('click', btnBookClick)
 
             btn.id = i + "," + j;
+            btn.className = 'btnBookClass';
 
             document.getElementById('calendar').appendChild(btn);
         }
@@ -82,9 +83,34 @@ booking.onload = () => {
 
 const btnBookClick = (event) => {
     const id = event.target.id;
+    const className = event.target.className;
     console.log(id);
+    console.log(className);
 
 
+    var elems = document.getElementsByClassName(className);
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].disabled = true;
+    }
+
+    document.getElementById('btnCancelId').disabled = false;
+}
+
+const btnCancel = () => {
+    console.log('btnCancel pressed');
+    let tBoxData = document.getElementById('tBoxBookTimeId');
+    tBoxData.value = '';
+
+    document.getElementById('btnCancelId').disabled = true;
+    document.getElementById('btnBookId').disabled = true;
+    document.getElementById('btnMonId').disabled = false;
+    document.getElementById('btnTueId').disabled = false;
+    document.getElementById('btnWedId').disabled = false;
+
+    var elems = document.getElementsByClassName('btnBookClass');
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].disabled = false;
+    }
 }
 
 const btnMon = () => {
@@ -163,18 +189,8 @@ const btnWed = () => {
     document.getElementById('btnMonId').disabled = true;
     document.getElementById('btnTueId').disabled = true;
     document.getElementById('btnWedId').disabled = true;
-}
 
-const btnCancel = () => {
-    console.log('btnCancel pressed');
-    let tBoxData = document.getElementById('tBoxBookTimeId');
-    tBoxData.value = '';
-
-    document.getElementById('btnCancelId').disabled = true;
-    document.getElementById('btnBookId').disabled = true;
-    document.getElementById('btnMonId').disabled = false;
-    document.getElementById('btnTueId').disabled = false;
-    document.getElementById('btnWedId').disabled = false;
+    document.getElementsByClassName('btnBookClass').disabled = false;
 }
 
 const btnSignOut = () => {
