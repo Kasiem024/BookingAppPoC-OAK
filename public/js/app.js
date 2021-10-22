@@ -14,11 +14,6 @@ booking.open('GET', dataURLBooking);
 booking.responseType = 'json';
 booking.send();
 
-const checkUser = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('user='))
-    .split('=')[1];
-
 window.onload = () => {
     console.log(document.cookie);
 }
@@ -78,7 +73,10 @@ const btnMon = () => {
     console.log('mon is pressed')
 
     data.bookings[0].booked = true;
-    data.bookings[0].bookedBy = checkUser;
+    data.bookings[0].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
 
     console.log(data.bookings[0].booked)
 
@@ -101,7 +99,10 @@ const btnTue = () => {
     console.log('tue is pressed')
 
     data.bookings[1].booked = true;
-    data.bookings[1].bookedBy = checkUser;
+    data.bookings[1].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
 
     console.log(data.bookings[1].booked)
 
@@ -124,7 +125,10 @@ const btnWed = () => {
     console.log('wed is pressed')
 
     data.bookings[2].booked = true;
-    data.bookings[2].bookedBy = checkUser;
+    data.bookings[2].bookedBy = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('user='))
+        .split('=')[1];;
 
     console.log(data.bookings[2].booked)
 
