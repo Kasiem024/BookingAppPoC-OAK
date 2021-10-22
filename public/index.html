@@ -29,15 +29,16 @@
         <button type="button" class="btn" onclick="Login()">Log in</button>
 
         <hr>
-
-        <label>Time</label>
-        <input type="text" class="input" id="tBoxBookTimeId" name="tBoxBookTimeName" placeholder="1700" style="height: 100px; width: 4000px;">
+        <input type="text" class="input" id="tBoxBookTimeId" name="tBoxBookTimeName">
         <br>
     </form>
 
-    <p>Monday 07:00</p><button id="mon" onclick="btnMon()">Book</button>
-    <p>Tuesday 10:00</p><button id="tue" onclick="btnTue()">Book</button>
-    <p>Wednesday 13:00</p><button id="wed" onclick="btnWed()">Book</button>
+    <p>Monday 07:00</p><button id="btnMonId" onclick="btnMon()">Book</button>
+    <p>Tuesday 10:00</p><button id="btnTueId" onclick="btnTue()">Book</button>
+    <p>Wednesday 13:00</p><button id="btnWedId" onclick="btnWed()">Book</button>
+    <hr>
+    <button id="btnCancelId" onclick="btnCancel()" disabled>Cancel</button>
+
 
 </body>
 

@@ -44,13 +44,14 @@ booking.onload = () => {
         // tBoxData.value = temptest;
 
     const btnBook = document.createElement('button');
-    btnBook.id = 'btnUpdateId';
+    btnBook.id = 'btnBookId';
     btnBook.textContent = 'Confirm';
 
     btnBook.addEventListener('click', ButtonEventhandler);
     document.getElementById('formId').appendChild(btnBook);
 
     tBoxData.style.display = 'none';
+    btnBook.disabled = true;
 };
 
 const ButtonEventhandler = () => {
@@ -70,6 +71,9 @@ const btnMon = () => {
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
 }
 
 const btnTue = () => {
@@ -85,6 +89,9 @@ const btnTue = () => {
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
 }
 
 const btnWed = () => {
@@ -100,4 +107,13 @@ const btnWed = () => {
 
     let dataTemp = JSON.stringify(data)
     tBoxData.value += dataTemp;
+
+    document.getElementById('btnCancelId').disabled = false;
+    document.getElementById('btnBookId').disabled = false;
+}
+
+const btnCancel = () => {
+    console.log('btnCancel pressed');
+    let tBoxData = document.getElementById('tBoxBookTimeId');
+    tBoxData.value = '';
 }
