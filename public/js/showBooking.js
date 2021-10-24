@@ -6,12 +6,6 @@ calendarBooking.open('GET', dataURLCalendarBooking);
 calendarBooking.responseType = 'json';
 calendarBooking.send();
 
-let dataURLUsers = '../data/users.json';
-let users = new XMLHttpRequest();
-users.open('GET', dataURLUsers);
-users.responseType = 'json';
-users.send();
-
 console.log('showBooking.js is alive!')
 console.log(document.cookie);
 
