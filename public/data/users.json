@@ -2,6 +2,7 @@
     "users": [
         { "name": "oscar" },
         { "name": "adam" },
-        { "name": "kasiem" }
+        { "name": "kasiem" },
+        { "name": "admin" }
     ]
 }

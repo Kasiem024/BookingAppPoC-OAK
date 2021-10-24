@@ -6,6 +6,12 @@ calendarBooking.open('GET', dataURLCalendarBooking);
 calendarBooking.responseType = 'json';
 calendarBooking.send();
 
+let dataURLUsers = '../data/users.json';
+let users = new XMLHttpRequest();
+users.open('GET', dataURLUsers);
+users.responseType = 'json';
+users.send();
+
 console.log('showBooking.js is alive!')
 console.log(document.cookie);
 
@@ -23,7 +29,7 @@ calendarBooking.onload = () => {
         for (let j = 0; j < dataCalendar.week[i].times.length; j++) {
 
             if (dataCalendar.week[i].times[j].bookedBy == cookieUser) {
-                // If the user has a booking print day and time
+                // If the user has a booking, print day and time
                 const p = document.createElement('p');
                 p.textContent = 'You have booked on ' + dataCalendar.week[i].day + ' at ' + dataCalendar.week[i].times[j].time;
                 document.getElementById('bookings').appendChild(p);
@@ -35,6 +41,17 @@ calendarBooking.onload = () => {
                 btn.className = 'btnCancelClass';
                 btn.addEventListener('click', btnCancelClick)
                 document.getElementById('bookings').appendChild(btn);
+            }
+
+            if (cookieUser == 'admin') {
+                if (dataCalendar.week[i].times[j].booked == true) {
+                    // If the user is "admin" and there are booked times,
+                    // show who has booked and when
+                    const p = document.createElement('p');
+                    p.textContent = dataCalendar.week[i].times[j].bookedBy + ' has a booking on ' + dataCalendar.week[i].day + ' at ' + dataCalendar.week[i].times[j].time;
+
+                    document.getElementById('bookings').appendChild(p);
+                }
             }
         }
     }
